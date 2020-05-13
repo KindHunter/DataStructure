@@ -23,7 +23,7 @@ public:
 
     bool contains(int data);
 
-    bool remove(int data);
+    bool remove(int index);
 
     Node * get(int index);
 

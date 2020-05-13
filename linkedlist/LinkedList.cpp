@@ -31,6 +31,10 @@ void LinkedList::addFirst(int data){
     this->add(0, data);
 };
 
+void LinkedList::addLast(int data) {
+    this->add(this->size, data);
+}
+
 void LinkedList::add(int index, int data){
     if(index < 0 || index > (this-> size)){
         throw "index not illegal!";
@@ -50,6 +54,28 @@ void LinkedList::add(int index, int data){
     node->next = newNode;
     newNode->next = nextNode;
     this->size = size + 1;
+
+}
+
+bool LinkedList::contains(int data) {
+    for (int i = 0; i < this->size; ++i) {
+        if (data == get(i)->data){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+bool LinkedList::remove(int index) {
+    if(index < 0 || index > (this->size - 1)){
+        throw "index not illegal!";
+    }
+    Node *previousNode = this->get(index - 1);
+    Node *removeNode = this->get(index);
+
+    previousNode->next = removeNode->next;
+    this->size = this->size-1;
 
 }
 
