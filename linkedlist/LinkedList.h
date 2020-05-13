@@ -2,17 +2,20 @@
 // Created by seven on 2020/4/28.
 //
 
-#ifndef DATASTRUCTURE_LIST_H
-#define DATASTRUCTURE_LIST_H
+#ifndef DATASTRUCTURE_LINKEDLIST_H
+#define DATASTRUCTURE_LINKEDLIST_H
 #include "Node.h"
 
 
-class List {
+
+class LinkedList {
+
+public:
     Node *head;
     Node *tail;
     int size;
 
-    List(void);
+    LinkedList(void);
 
     void addFirst(int data);
 
@@ -33,4 +36,4 @@ class List {
 
 
 
-#endif //DATASTRUCTURE_LIST_H
+#endif //DATASTRUCTURE_LINKEDLIST_H

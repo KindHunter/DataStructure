@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DataStructure.dir/linkedlist/List.cpp.obj"
+  "CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj"
   "CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj"
   "CMakeFiles/DataStructure.dir/main.cpp.obj"
   "DataStructure.exe"

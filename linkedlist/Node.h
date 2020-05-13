@@ -6,7 +6,8 @@
 #define DATASTRUCTURE_NODE_H
 
 
-struct Node {
+class Node {
+public:
     int data;
     Node *next;
 };

@@ -82,10 +82,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/CLionProject/DataStructure/linkedlist/List.cpp">
+		<Unit filename="D:/CLionProject/DataStructure/linkedlist/LinkedList.cpp">
 			<Option target="DataStructure"/>
 		</Unit>
-		<Unit filename="D:/CLionProject/DataStructure/linkedlist/List.h">
+		<Unit filename="D:/CLionProject/DataStructure/linkedlist/LinkedList.h">
 			<Option target="DataStructure"/>
 		</Unit>
 		<Unit filename="D:/CLionProject/DataStructure/linkedlist/Node.cpp">

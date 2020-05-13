@@ -82,31 +82,31 @@ CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.s"
 	D:\program\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLionProject\DataStructure\linkedlist\Node.cpp -o CMakeFiles\DataStructure.dir\linkedlist\Node.cpp.s
 
-CMakeFiles/DataStructure.dir/linkedlist/List.cpp.obj: CMakeFiles/DataStructure.dir/flags.make
-CMakeFiles/DataStructure.dir/linkedlist/List.cpp.obj: ../linkedlist/List.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CLionProject\DataStructure\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DataStructure.dir/linkedlist/List.cpp.obj"
-	D:\program\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DataStructure.dir\linkedlist\List.cpp.obj -c D:\CLionProject\DataStructure\linkedlist\List.cpp
+CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj: CMakeFiles/DataStructure.dir/flags.make
+CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj: ../linkedlist/LinkedList.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CLionProject\DataStructure\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj"
+	D:\program\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DataStructure.dir\linkedlist\LinkedList.cpp.obj -c D:\CLionProject\DataStructure\linkedlist\LinkedList.cpp
 
-CMakeFiles/DataStructure.dir/linkedlist/List.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DataStructure.dir/linkedlist/List.cpp.i"
-	D:\program\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLionProject\DataStructure\linkedlist\List.cpp > CMakeFiles\DataStructure.dir\linkedlist\List.cpp.i
+CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.i"
+	D:\program\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CLionProject\DataStructure\linkedlist\LinkedList.cpp > CMakeFiles\DataStructure.dir\linkedlist\LinkedList.cpp.i
 
-CMakeFiles/DataStructure.dir/linkedlist/List.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataStructure.dir/linkedlist/List.cpp.s"
-	D:\program\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLionProject\DataStructure\linkedlist\List.cpp -o CMakeFiles\DataStructure.dir\linkedlist\List.cpp.s
+CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.s"
+	D:\program\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CLionProject\DataStructure\linkedlist\LinkedList.cpp -o CMakeFiles\DataStructure.dir\linkedlist\LinkedList.cpp.s
 
 # Object files for target DataStructure
 DataStructure_OBJECTS = \
 "CMakeFiles/DataStructure.dir/main.cpp.obj" \
 "CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj" \
-"CMakeFiles/DataStructure.dir/linkedlist/List.cpp.obj"
+"CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj"
 
 # External object files for target DataStructure
 DataStructure_EXTERNAL_OBJECTS =
 
 DataStructure.exe: CMakeFiles/DataStructure.dir/main.cpp.obj
 DataStructure.exe: CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj
-DataStructure.exe: CMakeFiles/DataStructure.dir/linkedlist/List.cpp.obj
+DataStructure.exe: CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj
 DataStructure.exe: CMakeFiles/DataStructure.dir/build.make
 DataStructure.exe: CMakeFiles/DataStructure.dir/linklibs.rsp
 DataStructure.exe: CMakeFiles/DataStructure.dir/objects1.rsp

@@ -122,32 +122,32 @@ DataStructure/fast:
 	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/build
 .PHONY : DataStructure/fast
 
-linkedlist/List.obj: linkedlist/List.cpp.obj
+linkedlist/LinkedList.obj: linkedlist/LinkedList.cpp.obj
 
-.PHONY : linkedlist/List.obj
+.PHONY : linkedlist/LinkedList.obj
 
 # target to build an object file
-linkedlist/List.cpp.obj:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/List.cpp.obj
-.PHONY : linkedlist/List.cpp.obj
+linkedlist/LinkedList.cpp.obj:
+	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj
+.PHONY : linkedlist/LinkedList.cpp.obj
 
-linkedlist/List.i: linkedlist/List.cpp.i
+linkedlist/LinkedList.i: linkedlist/LinkedList.cpp.i
 
-.PHONY : linkedlist/List.i
+.PHONY : linkedlist/LinkedList.i
 
 # target to preprocess a source file
-linkedlist/List.cpp.i:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/List.cpp.i
-.PHONY : linkedlist/List.cpp.i
+linkedlist/LinkedList.cpp.i:
+	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.i
+.PHONY : linkedlist/LinkedList.cpp.i
 
-linkedlist/List.s: linkedlist/List.cpp.s
+linkedlist/LinkedList.s: linkedlist/LinkedList.cpp.s
 
-.PHONY : linkedlist/List.s
+.PHONY : linkedlist/LinkedList.s
 
 # target to generate assembly for a file
-linkedlist/List.cpp.s:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/List.cpp.s
-.PHONY : linkedlist/List.cpp.s
+linkedlist/LinkedList.cpp.s:
+	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.s
+.PHONY : linkedlist/LinkedList.cpp.s
 
 linkedlist/Node.obj: linkedlist/Node.cpp.obj
 
@@ -212,9 +212,9 @@ help:
 	@echo ... DataStructure
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... linkedlist/List.obj
-	@echo ... linkedlist/List.i
-	@echo ... linkedlist/List.s
+	@echo ... linkedlist/LinkedList.obj
+	@echo ... linkedlist/LinkedList.i
+	@echo ... linkedlist/LinkedList.s
 	@echo ... linkedlist/Node.obj
 	@echo ... linkedlist/Node.i
 	@echo ... linkedlist/Node.s
