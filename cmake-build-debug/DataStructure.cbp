@@ -97,6 +97,12 @@
 		<Unit filename="D:/CLionProject/DataStructure/main.cpp">
 			<Option target="DataStructure"/>
 		</Unit>
+		<Unit filename="D:/CLionProject/DataStructure/stack/ArrayStack.cpp">
+			<Option target="DataStructure"/>
+		</Unit>
+		<Unit filename="D:/CLionProject/DataStructure/stack/ArrayStack.h">
+			<Option target="DataStructure"/>
+		</Unit>
 		<Unit filename="D:/CLionProject/DataStructure/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

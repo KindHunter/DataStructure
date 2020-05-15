@@ -203,6 +203,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+stack/ArrayStack.obj: stack/ArrayStack.cpp.obj
+
+.PHONY : stack/ArrayStack.obj
+
+# target to build an object file
+stack/ArrayStack.cpp.obj:
+	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.obj
+.PHONY : stack/ArrayStack.cpp.obj
+
+stack/ArrayStack.i: stack/ArrayStack.cpp.i
+
+.PHONY : stack/ArrayStack.i
+
+# target to preprocess a source file
+stack/ArrayStack.cpp.i:
+	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.i
+.PHONY : stack/ArrayStack.cpp.i
+
+stack/ArrayStack.s: stack/ArrayStack.cpp.s
+
+.PHONY : stack/ArrayStack.s
+
+# target to generate assembly for a file
+stack/ArrayStack.cpp.s:
+	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.s
+.PHONY : stack/ArrayStack.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -221,6 +248,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... stack/ArrayStack.obj
+	@echo ... stack/ArrayStack.i
+	@echo ... stack/ArrayStack.s
 .PHONY : help
 
 

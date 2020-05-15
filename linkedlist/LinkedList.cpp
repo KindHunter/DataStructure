@@ -77,5 +77,7 @@ bool LinkedList::remove(int index) {
     previousNode->next = removeNode->next;
     this->size = this->size-1;
 
+    delete removeNode;
+
 }
 

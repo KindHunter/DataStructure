@@ -1,6 +1,7 @@
 #include <iostream>
 #include "linkedlist/LinkedList.h"
 #include "linkedlist/Node.h"
+#include "stack/ArrayStack.h"
 
 using namespace std;
 int main() {
@@ -22,6 +23,12 @@ int main() {
         cout << myList->contains(18) << endl;
         std::cout << "Hello, World!" << std::endl;
         delete myList;
+
+        ArrayStack *mystack = new ArrayStack(2);
+        mystack->push(121);
+        cout << mystack->pop() << endl;
+
+
         return 0;
     } catch (const char *msg){
         cerr << msg << endl;

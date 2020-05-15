@@ -11,4 +11,8 @@ CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj: ../linkedlist/Node.h
 CMakeFiles/DataStructure.dir/main.cpp.obj: ../linkedlist/LinkedList.h
 CMakeFiles/DataStructure.dir/main.cpp.obj: ../linkedlist/Node.h
 CMakeFiles/DataStructure.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/DataStructure.dir/main.cpp.obj: ../stack/ArrayStack.h
+
+CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.obj: ../stack/ArrayStack.cpp
+CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.obj: ../stack/ArrayStack.h
 
