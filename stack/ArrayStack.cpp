@@ -7,8 +7,8 @@
 ArrayStack :: ArrayStack(int stackSize){
     this->stackSize = stackSize;
     this->currentStackSize = 0;
-    int a[stackSize];
-    this->arrayP = a;
+    //动态数组初始化
+    this->arrayP = new int [stackSize]();
 }
 
 
@@ -16,12 +16,12 @@ void ArrayStack::push(int data) {
     if(currentStackSize >= stackSize){
         throw "stack over flow!";
     }
-    this->arrayP[currentStackSize] = data;
-    this->currentStackSize = this->currentStackSize + 1;
+    *(this->arrayP+currentStackSize) = data;
+    this->currentStackSize = (this->currentStackSize + 1);
 }
 
 int ArrayStack::pop() {
-    if(this->currentStackSize = 0){
+    if(this->currentStackSize == 0){
         throw "empty stack!";
     }
 

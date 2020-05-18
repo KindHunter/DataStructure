@@ -61,8 +61,16 @@ public:
     void add(int index, int data);
 
 
+    /**
+     * 翻转链表
+     * @return
+     */
     LinkedList * reverse();
 
+    /**
+     * 链表合并
+     * @param list
+     */
     void addAll(LinkedList *list);
 
     /**
