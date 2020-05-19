@@ -12,12 +12,13 @@ ArrayStack :: ArrayStack(int stackSize){
 }
 
 
-void ArrayStack::push(int data) {
+bool ArrayStack::push(int data) {
     if(currentStackSize >= stackSize){
-        throw "stack over flow!";
+        return false;
     }
     *(this->arrayP+currentStackSize) = data;
-    this->currentStackSize = (this->currentStackSize + 1);
+    this->currentStackSize++;
+    return true;
 }
 
 int ArrayStack::pop() {
@@ -26,7 +27,6 @@ int ArrayStack::pop() {
     }
 
     int retData = this->arrayP[this->currentStackSize -1];
-    this->arrayP[this->currentStackSize -1] = 0;
-    this->currentStackSize = this->currentStackSize -1;
+    this->currentStackSize--;
     return retData;
 }

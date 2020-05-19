@@ -78,6 +78,14 @@ public:
      */
     void validate();
 
+private:
+    /**
+     * 通过index获取node，如果是-1获取head，如果是size获取到tail
+     * @param index
+     * @return
+     */
+    Node * getIncludeHeadTail(int index);
+
 };
 
 

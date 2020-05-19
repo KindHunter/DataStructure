@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/CLionProject/DataStructure/linkedlist/Node.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj"
   "D:/CLionProject/DataStructure/main.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/main.cpp.obj"
   "D:/CLionProject/DataStructure/stack/ArrayStack.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.obj"
+  "D:/CLionProject/DataStructure/stack/LinkedStack.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/stack/LinkedStack.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

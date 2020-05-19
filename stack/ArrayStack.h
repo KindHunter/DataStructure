@@ -13,7 +13,7 @@ public:
     int *arrayP;
     ArrayStack(int stackSize);
     int pop();
-    void push(int data);
+    bool push(int data);
 
 
 };
