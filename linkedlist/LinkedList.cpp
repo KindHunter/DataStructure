@@ -72,7 +72,7 @@ bool LinkedList::remove(int index) {
         throw "index not illegal!";
     }
     Node *previousNode = this->getIncludeHeadTail(index - 1);
-    Node *removeNode = this->get(index);
+    Node *removeNode = this->getIncludeHeadTail(index);
 
     previousNode->next = removeNode->next;
     this->size = this->size-1;
