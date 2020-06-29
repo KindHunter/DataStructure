@@ -55,6 +55,40 @@ CMAKE_BINARY_DIR = D:\CLionProject\DataStructure\cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"D:\program\CLion\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"D:\program\CLion\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\program\CLion\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"D:\program\CLion\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -76,6 +110,18 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\program\CLion\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\program\CLion\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -122,59 +168,83 @@ DataStructure/fast:
 	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/build
 .PHONY : DataStructure/fast
 
-linkedlist/LinkedList.obj: linkedlist/LinkedList.cpp.obj
+#=============================================================================
+# Target rules for targets named DataStructure_lib
 
-.PHONY : linkedlist/LinkedList.obj
+# Build rule for target.
+DataStructure_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 DataStructure_lib
+.PHONY : DataStructure_lib
 
-# target to build an object file
-linkedlist/LinkedList.cpp.obj:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj
-.PHONY : linkedlist/LinkedList.cpp.obj
+# fast build rule for target.
+DataStructure_lib/fast:
+	$(MAKE) -f DataStructure_lib\CMakeFiles\DataStructure_lib.dir\build.make DataStructure_lib/CMakeFiles/DataStructure_lib.dir/build
+.PHONY : DataStructure_lib/fast
 
-linkedlist/LinkedList.i: linkedlist/LinkedList.cpp.i
+#=============================================================================
+# Target rules for targets named Google_Tests_run
 
-.PHONY : linkedlist/LinkedList.i
+# Build rule for target.
+Google_Tests_run: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 Google_Tests_run
+.PHONY : Google_Tests_run
 
-# target to preprocess a source file
-linkedlist/LinkedList.cpp.i:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.i
-.PHONY : linkedlist/LinkedList.cpp.i
+# fast build rule for target.
+Google_Tests_run/fast:
+	$(MAKE) -f Google_tests\CMakeFiles\Google_Tests_run.dir\build.make Google_tests/CMakeFiles/Google_Tests_run.dir/build
+.PHONY : Google_Tests_run/fast
 
-linkedlist/LinkedList.s: linkedlist/LinkedList.cpp.s
+#=============================================================================
+# Target rules for targets named gmock_main
 
-.PHONY : linkedlist/LinkedList.s
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gmock_main
+.PHONY : gmock_main
 
-# target to generate assembly for a file
-linkedlist/LinkedList.cpp.s:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.s
-.PHONY : linkedlist/LinkedList.cpp.s
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f Google_tests\lib\googlemock\CMakeFiles\gmock_main.dir\build.make Google_tests/lib/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
 
-linkedlist/Node.obj: linkedlist/Node.cpp.obj
+#=============================================================================
+# Target rules for targets named gmock
 
-.PHONY : linkedlist/Node.obj
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gmock
+.PHONY : gmock
 
-# target to build an object file
-linkedlist/Node.cpp.obj:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj
-.PHONY : linkedlist/Node.cpp.obj
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f Google_tests\lib\googlemock\CMakeFiles\gmock.dir\build.make Google_tests/lib/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
 
-linkedlist/Node.i: linkedlist/Node.cpp.i
+#=============================================================================
+# Target rules for targets named gtest
 
-.PHONY : linkedlist/Node.i
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gtest
+.PHONY : gtest
 
-# target to preprocess a source file
-linkedlist/Node.cpp.i:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.i
-.PHONY : linkedlist/Node.cpp.i
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f Google_tests\lib\googletest\CMakeFiles\gtest.dir\build.make Google_tests/lib/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
 
-linkedlist/Node.s: linkedlist/Node.cpp.s
+#=============================================================================
+# Target rules for targets named gtest_main
 
-.PHONY : linkedlist/Node.s
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 gtest_main
+.PHONY : gtest_main
 
-# target to generate assembly for a file
-linkedlist/Node.cpp.s:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.s
-.PHONY : linkedlist/Node.cpp.s
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f Google_tests\lib\googletest\CMakeFiles\gtest_main.dir\build.make Google_tests/lib/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
 
 main.obj: main.cpp.obj
 
@@ -203,84 +273,28 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-stack/ArrayStack.obj: stack/ArrayStack.cpp.obj
-
-.PHONY : stack/ArrayStack.obj
-
-# target to build an object file
-stack/ArrayStack.cpp.obj:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.obj
-.PHONY : stack/ArrayStack.cpp.obj
-
-stack/ArrayStack.i: stack/ArrayStack.cpp.i
-
-.PHONY : stack/ArrayStack.i
-
-# target to preprocess a source file
-stack/ArrayStack.cpp.i:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.i
-.PHONY : stack/ArrayStack.cpp.i
-
-stack/ArrayStack.s: stack/ArrayStack.cpp.s
-
-.PHONY : stack/ArrayStack.s
-
-# target to generate assembly for a file
-stack/ArrayStack.cpp.s:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.s
-.PHONY : stack/ArrayStack.cpp.s
-
-stack/LinkedStack.obj: stack/LinkedStack.cpp.obj
-
-.PHONY : stack/LinkedStack.obj
-
-# target to build an object file
-stack/LinkedStack.cpp.obj:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/LinkedStack.cpp.obj
-.PHONY : stack/LinkedStack.cpp.obj
-
-stack/LinkedStack.i: stack/LinkedStack.cpp.i
-
-.PHONY : stack/LinkedStack.i
-
-# target to preprocess a source file
-stack/LinkedStack.cpp.i:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/LinkedStack.cpp.i
-.PHONY : stack/LinkedStack.cpp.i
-
-stack/LinkedStack.s: stack/LinkedStack.cpp.s
-
-.PHONY : stack/LinkedStack.s
-
-# target to generate assembly for a file
-stack/LinkedStack.cpp.s:
-	$(MAKE) -f CMakeFiles\DataStructure.dir\build.make CMakeFiles/DataStructure.dir/stack/LinkedStack.cpp.s
-.PHONY : stack/LinkedStack.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... list_install_components
 	@echo ... DataStructure
+	@echo ... install/local
+	@echo ... install
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... linkedlist/LinkedList.obj
-	@echo ... linkedlist/LinkedList.i
-	@echo ... linkedlist/LinkedList.s
-	@echo ... linkedlist/Node.obj
-	@echo ... linkedlist/Node.i
-	@echo ... linkedlist/Node.s
+	@echo ... install/strip
+	@echo ... DataStructure_lib
+	@echo ... Google_Tests_run
+	@echo ... gmock_main
+	@echo ... gmock
+	@echo ... gtest
+	@echo ... gtest_main
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... stack/ArrayStack.obj
-	@echo ... stack/ArrayStack.i
-	@echo ... stack/ArrayStack.s
-	@echo ... stack/LinkedStack.obj
-	@echo ... stack/LinkedStack.i
-	@echo ... stack/LinkedStack.s
 .PHONY : help
 
 

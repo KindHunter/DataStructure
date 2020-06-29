@@ -1,8 +1,8 @@
 #include <iostream>
-#include "linkedlist/LinkedList.h"
-#include "linkedlist/Node.h"
-#include "stack/ArrayStack.h"
-#include "stack/LinkedStack.h"
+#include "DataStructure_lib/linkedlist/LinkedList.h"
+#include "DataStructure_lib/linkedlist/Node.h"
+#include "DataStructure_lib/stack/ArrayStack.h"
+#include "DataStructure_lib/stack/LinkedStack.h"
 
 using namespace std;
 int main() {

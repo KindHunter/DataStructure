@@ -4,20 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/CLionProject/DataStructure/linkedlist/LinkedList.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj"
-  "D:/CLionProject/DataStructure/linkedlist/Node.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj"
   "D:/CLionProject/DataStructure/main.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/main.cpp.obj"
-  "D:/CLionProject/DataStructure/stack/ArrayStack.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.obj"
-  "D:/CLionProject/DataStructure/stack/LinkedStack.cpp" "D:/CLionProject/DataStructure/cmake-build-debug/CMakeFiles/DataStructure.dir/stack/LinkedStack.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../DataStructure_lib"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "D:/CLionProject/DataStructure/cmake-build-debug/DataStructure_lib/CMakeFiles/DataStructure_lib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

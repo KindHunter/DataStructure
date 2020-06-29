@@ -1,9 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DataStructure.dir/linkedlist/LinkedList.cpp.obj"
-  "CMakeFiles/DataStructure.dir/linkedlist/Node.cpp.obj"
   "CMakeFiles/DataStructure.dir/main.cpp.obj"
-  "CMakeFiles/DataStructure.dir/stack/ArrayStack.cpp.obj"
-  "CMakeFiles/DataStructure.dir/stack/LinkedStack.cpp.obj"
   "DataStructure.exe"
   "DataStructure.exe.manifest"
   "DataStructure.pdb"
