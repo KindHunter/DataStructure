@@ -84,7 +84,7 @@ private:
      * @param index
      * @return
      */
-    Node * getIncludeHeadTail(int index);
+    Node * getByIndexIncludeHeadTail(int index);
 
 };
 

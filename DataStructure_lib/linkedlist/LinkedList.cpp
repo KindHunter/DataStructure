@@ -20,11 +20,7 @@ Node * LinkedList::get(int index) {
     if(index < 0 || index > (this-> size-1)){
         throw "index not illegal!";
     }
-    Node *n = this->head;
-    for (int position = 0; position <= index; position++) {
-        n = n->next;
-    }
-    return n;
+    return getByIndexIncludeHeadTail(index);
 }
 
 void LinkedList::addFirst(int data){
@@ -41,13 +37,9 @@ void LinkedList::add(int index, int data){
     }
     Node *node;
     Node *nextNode;
-    if(index == 0){
-        node = this->head;
-        nextNode = this->head->next;
-    }else{
-        node = get(index - 1);
-        nextNode = node->next;
-    }
+
+    node = getByIndexIncludeHeadTail(index - 1);
+    nextNode = node->next;
 
     Node *newNode = new Node;
     newNode->data = data;
@@ -58,8 +50,10 @@ void LinkedList::add(int index, int data){
 }
 
 bool LinkedList::contains(int data) {
+    Node * currentNode = this->head;
     for (int i = 0; i < this->size; ++i) {
-        if (data == get(i)->data){
+        currentNode = currentNode->next;
+        if(currentNode->data == data){
             return true;
         }
     }
@@ -69,10 +63,10 @@ bool LinkedList::contains(int data) {
 
 bool LinkedList::remove(int index) {
     if(index < 0 || index > (this->size - 1)){
-        throw "index not illegal!";
+        return false;
     }
-    Node *previousNode = this->getIncludeHeadTail(index - 1);
-    Node *removeNode = this->getIncludeHeadTail(index);
+    Node *previousNode = this->getByIndexIncludeHeadTail(index - 1);
+    Node *removeNode = this->getByIndexIncludeHeadTail(index);
 
     previousNode->next = removeNode->next;
     this->size = this->size-1;
@@ -83,7 +77,11 @@ bool LinkedList::remove(int index) {
 
 }
 
-Node * LinkedList::getIncludeHeadTail(int index) {
+Node * LinkedList::getByIndexIncludeHeadTail(int index) {
+
+    if (index < -1 || index > this->size){
+        throw "error index";
+    }
 
     if(index == -1){
         return this->head;
