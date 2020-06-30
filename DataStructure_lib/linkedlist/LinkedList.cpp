@@ -93,3 +93,25 @@ Node * LinkedList::getByIndexIncludeHeadTail(int index) {
     return n;
 }
 
+LinkedList *LinkedList::reverse() {
+    LinkedList * reversedLinkList = new LinkedList();
+    if (this->size <= 0){
+        return reversedLinkList;
+    }
+    Node * currentNode = this->head;
+    for (int i = 0; i < this->size; ++i) {
+        currentNode = currentNode->next;
+        reversedLinkList->addFirst(currentNode->data);
+    }
+
+    return reversedLinkList;
+}
+
+void LinkedList::addAll(LinkedList *mergeList) {
+    for (int i = 0; i < mergeList->size; ++i) {
+        this->addLast(mergeList->get(i)->data);
+    }
+}
+
+
+

@@ -69,9 +69,9 @@ public:
 
     /**
      * 链表合并
-     * @param list
+     * @param mergeList
      */
-    void addAll(LinkedList *list);
+    void addAll(LinkedList *mergeList);
 
     /**
      * 校验链表是否完整，size 是否正确， 头尾节点是否正确（头尾节点正确的话，就不会有环）
