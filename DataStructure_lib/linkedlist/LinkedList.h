@@ -76,7 +76,7 @@ public:
     /**
      * 校验链表是否有环
      */
-    bool validateLoop();
+    bool detectedLoop();
 
 private:
     /**

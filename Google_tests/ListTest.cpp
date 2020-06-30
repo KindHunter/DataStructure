@@ -112,7 +112,7 @@ TEST_F(ListTestFixture, testValidate){
     myList->addFirst(14);
     myList->addFirst(15);
 
-
-    EXPECT_TRUE(myList->validateLoop());
+    myList->get(4)->next = myList->get(3);
+    EXPECT_TRUE(myList->detectedLoop());
 
 }

@@ -113,17 +113,17 @@ void LinkedList::addAll(LinkedList *mergeList) {
     }
 }
 
-bool LinkedList::validateLoop() {
+bool LinkedList::detectedLoop() {
     Node * slowNode = this->head;
     Node * fastNode = this->head;
     while(true){
         slowNode = slowNode->next;
         fastNode = fastNode->next->next;
         if (slowNode == fastNode){
-            return false;
-        }
-        if (fastNode == nullptr){
             return true;
+        }
+        if (fastNode == nullptr || fastNode == tail){
+            return false;
         }
     }
 }
