@@ -8,6 +8,11 @@
 
 class Node {
 public:
+    /**
+     * 构造函数
+     */
+    Node(void);
+
     int data;
     Node *next;
 };

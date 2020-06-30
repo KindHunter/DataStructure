@@ -99,3 +99,20 @@ TEST_F(ListTestFixture, testAddAll){
 
 
 }
+
+
+/**
+ * 测试链表校验环形链表
+ */
+TEST_F(ListTestFixture, testValidate){
+
+    myList->addFirst(11);
+    myList->addFirst(12);
+    myList->addFirst(13);
+    myList->addFirst(14);
+    myList->addFirst(15);
+
+
+    EXPECT_TRUE(myList->validateLoop());
+
+}
