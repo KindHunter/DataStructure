@@ -438,7 +438,10 @@
 		<Unit filename="D:/CLionProject/DataStructure/DataStructure_lib/stack/LinkedStack.h">
 			<Option target="DataStructure_lib"/>
 		</Unit>
-		<Unit filename="D:/CLionProject/DataStructure/Google_tests/ListTest.cpp">
+		<Unit filename="D:/CLionProject/DataStructure/Google_tests/LinkedListTest.cpp">
+			<Option target="Google_Tests_run"/>
+		</Unit>
+		<Unit filename="D:/CLionProject/DataStructure/Google_tests/StackTest.cpp">
 			<Option target="Google_Tests_run"/>
 		</Unit>
 		<Unit filename="D:/CLionProject/DataStructure/Google_tests/lib/googlemock/src/gmock-all.cc">
