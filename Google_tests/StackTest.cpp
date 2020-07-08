@@ -34,12 +34,16 @@ TEST_F(StackTestFixture, testBasic){
     EXPECT_TRUE(myArrayStack->push(2));
     EXPECT_EQ(myArrayStack->pop(), 2);
     EXPECT_EQ(myArrayStack->pop(), 1);
+    EXPECT_TRUE(myArrayStack->push(3));
+    EXPECT_EQ(myArrayStack->pop(), 3);
+
     EXPECT_THROW(myArrayStack->pop(), const char*);
 
     EXPECT_TRUE(myLinkedStack->push(1));
     EXPECT_TRUE(myLinkedStack->push(2));
     EXPECT_EQ(myLinkedStack->pop(), 2);
     EXPECT_EQ(myLinkedStack->pop(), 1);
+
     EXPECT_THROW(myLinkedStack->pop(), const char*);
 }
 
