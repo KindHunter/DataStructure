@@ -5,6 +5,7 @@ set(HEADER_FILES
         linkedlist/Node.h
         stack/ArrayStack.h
         stack/LinkedStack.h
+        queue/ArrayQueue.h
         )
 
 set(SOURCE_FILES
@@ -12,6 +13,7 @@ set(SOURCE_FILES
         linkedlist/Node.cpp
         stack/ArrayStack.cpp
         stack/LinkedStack.cpp
+        queue/ArrayQueue.cpp
         )
 
 add_library(DataStructure_lib STATIC ${SOURCE_FILES} ${HEADER_FILES})

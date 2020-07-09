@@ -10,6 +10,10 @@ class ArrayQueue {
 public:
 
     /**
+     * 是否为空
+     */
+    bool isEmpty;
+    /**
      * 队列大小
      */
     int queueSize;
