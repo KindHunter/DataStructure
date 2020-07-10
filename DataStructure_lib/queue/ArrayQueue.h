@@ -12,7 +12,7 @@ public:
     /**
      * 是否为空
      */
-    bool isEmpty;
+    bool empty;
     /**
      * 队列大小
      */
@@ -45,6 +45,18 @@ public:
      * @return
      */
     int dequeue();
+
+    /**
+     * 判断是否队列为空
+     * @return
+     */
+    bool isEmpty();
+
+    /**
+     * 判断是否队列是满的
+     * @return
+     */
+    bool isFull();
 
 
 };
