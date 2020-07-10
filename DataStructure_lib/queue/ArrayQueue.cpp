@@ -23,6 +23,7 @@ bool ArrayQueue::enqueue(int data) {
     this->arrayP[tailIndex] = data;
     this->tailIndex = (this->tailIndex + 1) % this->queueSize;
     this->isEmpty = false;
+    return true;
 }
 
 int ArrayQueue::dequeue() {

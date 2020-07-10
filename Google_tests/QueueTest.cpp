@@ -36,5 +36,20 @@ TEST_F(QueueTestFixture, testBasic){
 }
 
 
+TEST_F(QueueTestFixture, mixTest){
+    EXPECT_TRUE(myArrayQueue->enqueue(1));
+    EXPECT_EQ(myArrayQueue->dequeue(), 1);
+
+    EXPECT_TRUE(myArrayQueue->enqueue(2));
+    EXPECT_EQ(myArrayQueue->dequeue(), 2);
+
+
+    EXPECT_TRUE(myArrayQueue->enqueue(3));
+    EXPECT_EQ(myArrayQueue->dequeue(), 3);
+    EXPECT_THROW(myArrayQueue->dequeue(), const char*);
+
+}
+
+
 
 
