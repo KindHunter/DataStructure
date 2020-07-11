@@ -6,7 +6,8 @@ set(HEADER_FILES
         stack/ArrayStack.h
         stack/LinkedStack.h
         queue/ArrayQueue.h
-        )
+        sort/BubbleSort.h
+        sort/InsertionSort.h)
 
 set(SOURCE_FILES
         linkedlist/LinkedList.cpp
@@ -14,6 +15,7 @@ set(SOURCE_FILES
         stack/ArrayStack.cpp
         stack/LinkedStack.cpp
         queue/ArrayQueue.cpp
-        )
+        sort/BubbleSort.cpp
+        sort/InsertionSort.cpp )
 
 add_library(DataStructure_lib STATIC ${SOURCE_FILES} ${HEADER_FILES})
