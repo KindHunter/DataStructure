@@ -6,6 +6,7 @@
 #include <iostream>
 #include "sort/BubbleSort.h"
 #include "sort/InsertionSort.h"
+#include "sort/ShellSort.h"
 #include <chrono>
 #include <random>
 
@@ -17,6 +18,8 @@ class SortTestFixture: public ::testing::Test {
 protected:
     BubbleSort *bubbleSort;
     InsertionSort *insertionSort;
+    ShellSort * shellSort;
+
     int * arr;
     int * arrDuplicate;
     int * oneElementArr;
@@ -37,6 +40,9 @@ protected:
 
     virtual void SetUp(){
         bubbleSort = new BubbleSort();
+        insertionSort = new InsertionSort();
+        shellSort = new ShellSort();
+
         arrSize = 5;
         arr = new int[arrSize]{5, 4, 1, 3, 2};
         arrDuplicate = new int[arrSize]{5, 5, 1, 1, 2};
@@ -51,6 +57,8 @@ protected:
 
     virtual void TearDown(){
         delete bubbleSort;
+        delete insertionSort;
+        delete shellSort;
         delete [] arr;
         delete [] oneElementArr;
         delete [] randomArr;
@@ -61,7 +69,7 @@ protected:
 
 
 /**
- * 测试栈的基本功能
+ * 测试冒泡排序的基本功能
  */
 TEST_F(SortTestFixture, testBubbleSort) {
 
@@ -80,8 +88,11 @@ TEST_F(SortTestFixture, testBubbleSort) {
     auto duration = duration_cast<microseconds>(afterSort - beforeSort);
     std::cout<< "bubbleSort elements timeConsumption:" << duration.count() << std::endl;
 
-}/**
- * 测试栈的基本功能
+}
+
+
+/**
+ * 测试插入排序的基本功能
  */
 TEST_F(SortTestFixture, testInsertionSort) {
 
@@ -99,6 +110,30 @@ TEST_F(SortTestFixture, testInsertionSort) {
     auto afterSort = system_clock::now();
     auto duration = duration_cast<microseconds>(afterSort - beforeSort);
     std::cout<< "insertSort elements timeConsumption:" <<duration.count() << std::endl;
+
+
+}
+
+
+/**
+ * 测试希尔排序的基本功能
+ */
+TEST_F(SortTestFixture, testShellSort) {
+
+    this->shellSort->sort(this->arr, this->arrSize);
+    this->shellSort->sort(this->arrDuplicate, this->arrSize);
+    for (int i = 0; i < this->arrSize - 1; ++i) {
+        EXPECT_GE(arr[i + 1], arr[i]);
+        EXPECT_GE(arrDuplicate[i + 1], arrDuplicate[i]);
+
+    }
+    this->shellSort->sort(this->oneElementArr, 1);
+
+    auto beforeSort = system_clock::now();
+    this->shellSort->sort(this->randomArr, this->randomArrSize);
+    auto afterSort = system_clock::now();
+    auto duration = duration_cast<microseconds>(afterSort - beforeSort);
+    std::cout<< "shellSort elements timeConsumption:" <<duration.count() << std::endl;
 
 
 }
