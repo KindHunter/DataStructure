@@ -8,7 +8,9 @@ set(HEADER_FILES
         queue/ArrayQueue.h
         sort/BubbleSort.h
         sort/InsertionSort.h
-        sort/ShellSort.h)
+        sort/ShellSort.h
+        sort/MergeSort.h
+        sort/QuickSort.h)
 
 set(SOURCE_FILES
         linkedlist/LinkedList.cpp
@@ -18,6 +20,8 @@ set(SOURCE_FILES
         queue/ArrayQueue.cpp
         sort/BubbleSort.cpp
         sort/InsertionSort.cpp
-        sort/ShellSort.cpp )
+        sort/ShellSort.cpp
+        sort/MergeSort.cpp
+        sort/QuickSort.cpp)
 
 add_library(DataStructure_lib STATIC ${SOURCE_FILES} ${HEADER_FILES})
