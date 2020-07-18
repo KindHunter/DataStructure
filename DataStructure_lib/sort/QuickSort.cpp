@@ -15,6 +15,5 @@ void quickSort(int start, int end){
     if (start = end){
         return;
     }
-    int pivot =
 
 }

@@ -7,6 +7,7 @@
 #include "sort/BubbleSort.h"
 #include "sort/InsertionSort.h"
 #include "sort/ShellSort.h"
+#include "sort/MergeSort.h"
 #include <chrono>
 #include <random>
 
@@ -19,6 +20,7 @@ protected:
     BubbleSort *bubbleSort;
     InsertionSort *insertionSort;
     ShellSort * shellSort;
+    MergeSort * mergeSort;
 
     int * arr;
     int * arrDuplicate;
@@ -42,12 +44,13 @@ protected:
         bubbleSort = new BubbleSort();
         insertionSort = new InsertionSort();
         shellSort = new ShellSort();
+        mergeSort = new MergeSort();
 
         arrSize = 5;
         arr = new int[arrSize]{5, 4, 1, 3, 2};
         arrDuplicate = new int[arrSize]{5, 5, 1, 1, 2};
         oneElementArr = new int[1]{1};
-        this->randomArrSize = 30000;
+        this->randomArrSize = 3000;
         randomArr = new int[randomArrSize];
         for (int i = 0; i < randomArrSize; ++i) {
             randomArr[i] = randomInt();
@@ -134,6 +137,31 @@ TEST_F(SortTestFixture, testShellSort) {
     auto afterSort = system_clock::now();
     auto duration = duration_cast<microseconds>(afterSort - beforeSort);
     std::cout<< "shellSort elements timeConsumption:" <<duration.count() << std::endl;
+
+
+}
+
+
+
+/**
+ * 测试合并排序的基本功能
+ */
+TEST_F(SortTestFixture, testMergeSort) {
+
+    this->mergeSort->sort(this->arr, this->arrSize);
+    this->mergeSort->sort(this->arrDuplicate, this->arrSize);
+    for (int i = 0; i < this->arrSize - 1; ++i) {
+        EXPECT_GE(arr[i + 1], arr[i]);
+        EXPECT_GE(arrDuplicate[i + 1], arrDuplicate[i]);
+
+    }
+    this->mergeSort->sort(this->oneElementArr, 1);
+
+    auto beforeSort = system_clock::now();
+    this->mergeSort->sort(this->randomArr, this->randomArrSize);
+    auto afterSort = system_clock::now();
+    auto duration = duration_cast<microseconds>(afterSort - beforeSort);
+    std::cout<< "mergeSort elements timeConsumption:" <<duration.count() << std::endl;
 
 
 }
