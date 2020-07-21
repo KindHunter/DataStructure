@@ -8,6 +8,8 @@
 #include "sort/InsertionSort.h"
 #include "sort/ShellSort.h"
 #include "sort/MergeSort.h"
+#include "sort/QuickSort.h"
+
 #include <chrono>
 #include <random>
 
@@ -21,6 +23,7 @@ protected:
     InsertionSort *insertionSort;
     ShellSort * shellSort;
     MergeSort * mergeSort;
+    QuickSort * quickSort;
 
     int * arr;
     int * arrDuplicate;
@@ -162,6 +165,31 @@ TEST_F(SortTestFixture, testMergeSort) {
     auto afterSort = system_clock::now();
     auto duration = duration_cast<microseconds>(afterSort - beforeSort);
     std::cout<< "mergeSort elements timeConsumption:" <<duration.count() << std::endl;
+
+
+}
+
+
+
+/**
+ * 测试快速排序的基本功能
+ */
+TEST_F(SortTestFixture, testQuickSort) {
+
+    this->quickSort->sort(this->arr, this->arrSize);
+    this->quickSort->sort(this->arrDuplicate, this->arrSize);
+    for (int i = 0; i < this->arrSize - 1; ++i) {
+        EXPECT_GE(arr[i + 1], arr[i]);
+        EXPECT_GE(arrDuplicate[i + 1], arrDuplicate[i]);
+
+    }
+    this->quickSort->sort(this->oneElementArr, 1);
+
+    auto beforeSort = system_clock::now();
+    this->quickSort->sort(this->randomArr, this->randomArrSize);
+    auto afterSort = system_clock::now();
+    auto duration = duration_cast<microseconds>(afterSort - beforeSort);
+    std::cout<< "quickSort elements timeConsumption:" <<duration.count() << std::endl;
 
 
 }

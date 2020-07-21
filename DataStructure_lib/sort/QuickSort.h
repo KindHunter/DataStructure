@@ -12,6 +12,10 @@ public:
 
     void sort(int * arr, int size);
 
+private:
+    int partition(int * arr, int start, int end);
+
+    void quickSort(int *arr, int start, int end);
 };
 
 
