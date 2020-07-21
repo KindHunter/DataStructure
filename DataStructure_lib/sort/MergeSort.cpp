@@ -3,6 +3,12 @@
 //
 
 #include "MergeSort.h"
+#include <chrono>
+#include <iostream>
+
+using namespace std;
+using namespace chrono;
+
 
 void MergeSort::sort(int *arr, int size) {
     if(size == 0){
@@ -13,7 +19,6 @@ void MergeSort::sort(int *arr, int size) {
 
     //数组拷贝
     this->arrCopy(arr, arrCopy, size);
-
     divideSort(arr, arrCopy, 0,  size);
 
     delete [] arrCopy;
@@ -34,11 +39,11 @@ void MergeSort::divideSort(int *arr, int *arrCopy, int start, int end) {
 
     int pivot = (start + end)/2;
     //这里的arrCopy arr的参数顺序每次递归都调换一下，是因为，我们每次都只需要一个指定区间排好序的数组，另一个当做需要存储的数组
-    divideSort(arrCopy, arr, 0, pivot);
+    divideSort(arrCopy, arr, start, pivot);
 
     divideSort(arrCopy, arr, pivot, end);
 
-    mgSort(arr, arrCopy, 0, pivot, end);
+    mgSort(arr, arrCopy, start, pivot, end);
 
 
 }
