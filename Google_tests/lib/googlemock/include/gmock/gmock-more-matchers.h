@@ -57,12 +57,12 @@ namespace testing {
 #endif
 
 // Defines a matcher that matches an empty container. The container must
-// support both size() and empty(), which all STL-like containers provide.
+// support both randomSize() and empty(), which all STL-like containers provide.
 MATCHER(IsEmpty, negation ? "isn't empty" : "is empty") {
   if (arg.empty()) {
     return true;
   }
-  *result_listener << "whose size is " << arg.size();
+  *result_listener << "whose randomSize is " << arg.size();
   return false;
 }
 

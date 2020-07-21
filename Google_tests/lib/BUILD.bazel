@@ -144,7 +144,7 @@ cc_library(
 
 cc_test(
     name = "gtest_samples",
-    size = "small",
+    randomSize = "small",
     # All Samples except:
     #   sample9 (main)
     #   sample10 (main and takes a command line option and needs to be separate)
@@ -167,14 +167,14 @@ cc_test(
 
 cc_test(
     name = "sample9_unittest",
-    size = "small",
+    randomSize = "small",
     srcs = ["googletest/samples/sample9_unittest.cc"],
     deps = [":gtest"],
 )
 
 cc_test(
     name = "sample10_unittest",
-    size = "small",
+    randomSize = "small",
     srcs = ["googletest/samples/sample10_unittest.cc"],
     deps = [":gtest"],
 )

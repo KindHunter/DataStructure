@@ -2168,7 +2168,7 @@ class ResultOfMatcher {
   const InnerMatcher matcher_;
 };
 
-// Implements a matcher that checks the size of an STL-style container.
+// Implements a matcher that checks the randomSize of an STL-style container.
 template <typename SizeMatcher>
 class SizeIsMatcher {
  public:
@@ -2189,11 +2189,11 @@ class SizeIsMatcher {
         : size_matcher_(MatcherCast<SizeType>(size_matcher)) {}
 
     void DescribeTo(::std::ostream* os) const override {
-      *os << "size ";
+      *os << "randomSize ";
       size_matcher_.DescribeTo(os);
     }
     void DescribeNegationTo(::std::ostream* os) const override {
-      *os << "size ";
+      *os << "randomSize ";
       size_matcher_.DescribeNegationTo(os);
     }
 
@@ -2203,7 +2203,7 @@ class SizeIsMatcher {
       StringMatchResultListener size_listener;
       const bool result = size_matcher_.MatchAndExplain(size, &size_listener);
       *listener
-          << "whose size " << size << (result ? " matches" : " doesn't match");
+          << "whose randomSize " << size << (result ? " matches" : " doesn't match");
       PrintIfNotEmpty(size_listener.str(), listener->stream());
       return result;
     }
@@ -2969,8 +2969,8 @@ class ElementsAreMatcherImpl : public MatcherInterface<Container> {
     // If mismatch_found is true, 'exam_pos' is the index of the mismatch.
 
     // Find how many elements the actual container has.  We avoid
-    // calling size() s.t. this code works for stream-like "containers"
-    // that don't define size().
+    // calling randomSize() s.t. this code works for stream-like "containers"
+    // that don't define randomSize().
     size_t actual_count = exam_pos;
     for (; it != stl_container.end(); ++it) {
       ++actual_count;
@@ -4194,9 +4194,9 @@ Truly(Predicate pred) {
   return MakePolymorphicMatcher(internal::TrulyMatcher<Predicate>(pred));
 }
 
-// Returns a matcher that matches the container size. The container must
-// support both size() and size_type which all STL-like containers provide.
-// Note that the parameter 'size' can be a value of type size_type as well as
+// Returns a matcher that matches the container randomSize. The container must
+// support both randomSize() and size_type which all STL-like containers provide.
+// Note that the parameter 'randomSize' can be a value of type size_type as well as
 // matcher. For instance:
 //   EXPECT_THAT(container, SizeIs(2));     // Checks container has 2 elements.
 //   EXPECT_THAT(container, SizeIs(Le(2));  // Checks container has at most 2.
@@ -4207,9 +4207,9 @@ SizeIs(const SizeMatcher& size_matcher) {
 }
 
 // Returns a matcher that matches the distance between the container's begin()
-// iterator and its end() iterator, i.e. the size of the container. This matcher
+// iterator and its end() iterator, i.e. the randomSize of the container. This matcher
 // can be used instead of SizeIs with containers such as std::forward_list which
-// do not implement size(). The container must provide const_iterator (with
+// do not implement randomSize(). The container must provide const_iterator (with
 // valid iterator_traits), begin() and end().
 template <typename DistanceMatcher>
 inline internal::BeginEndDistanceIsMatcher<DistanceMatcher>
@@ -4354,7 +4354,7 @@ inline internal::ContainsMatcher<M> Contains(M matcher) {
 // of matchers exists. In other words, a container matches
 // IsSupersetOf({e1, ..., en}) if and only if there is a permutation
 // {y1, ..., yn} of some of the container's elements where y1 matches e1,
-// ..., and yn matches en. Obviously, the size of the container must be >= n
+// ..., and yn matches en. Obviously, the randomSize of the container must be >= n
 // in order to have a match. Examples:
 //
 // - {1, 2, 3} matches IsSupersetOf({Ge(3), Ne(0)}), as 3 matches Ge(3) and
@@ -4414,7 +4414,7 @@ inline internal::UnorderedElementsAreArrayMatcher<T> IsSupersetOf(
 // IsSubsetOf() verifies that an injective mapping onto a collection of matchers
 // exists.  In other words, a container matches IsSubsetOf({e1, ..., en}) if and
 // only if there is a subset of matchers {m1, ..., mk} which would match the
-// container using UnorderedElementsAre.  Obviously, the size of the container
+// container using UnorderedElementsAre.  Obviously, the randomSize of the container
 // must be <= n in order to have a match. Examples:
 //
 // - {1} matches IsSubsetOf({Gt(0), Lt(0)}), as 1 matches Gt(0).

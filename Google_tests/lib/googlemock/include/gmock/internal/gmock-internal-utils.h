@@ -373,7 +373,7 @@ class StlContainerView<Element[N]> {
 };
 
 // This specialization is used when RawContainer is a native array
-// represented as a (pointer, size) tuple.
+// represented as a (pointer, randomSize) tuple.
 template <typename ElementPointer, typename Size>
 class StlContainerView< ::std::tuple<ElementPointer, Size> > {
  public:
@@ -411,7 +411,7 @@ struct RemoveConstFromKey<std::pair<const K, V> > {
 };
 
 // Emit an assertion failure due to incorrect DoDefault() usage. Out-of-lined to
-// reduce code size.
+// reduce code randomSize.
 GTEST_API_ void IllegalDoDefault(const char* file, int line);
 
 template <typename F, typename Tuple, size_t... Idx>

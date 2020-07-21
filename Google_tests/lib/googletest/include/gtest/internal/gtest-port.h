@@ -865,7 +865,7 @@ class Secret;
 
 // The GTEST_COMPILE_ASSERT_ is a legacy macro used to verify that a compile
 // time expression is true (in new code, use static_assert instead). For
-// example, you could use it to verify the size of a static array:
+// example, you could use it to verify the randomSize of a static array:
 //
 //   GTEST_COMPILE_ASSERT_(GTEST_ARRAY_SIZE_(names) == NUM_NAMES,
 //                         names_incorrect_size);
@@ -1137,7 +1137,7 @@ GTEST_API_ void CaptureStderr();
 GTEST_API_ std::string GetCapturedStderr();
 
 #endif  // GTEST_HAS_STREAM_REDIRECTION
-// Returns the size (in bytes) of a file.
+// Returns the randomSize (in bytes) of a file.
 GTEST_API_ size_t GetFileSize(FILE* file);
 
 // Reads the entire content of a file as a string.
@@ -2118,8 +2118,8 @@ GTEST_DISABLE_MSC_DEPRECATED_POP_()
 // snprintf is a variadic function.
 #if _MSC_VER && !GTEST_OS_WINDOWS_MOBILE
 // MSVC 2005 and above support variadic macros.
-# define GTEST_SNPRINTF_(buffer, size, format, ...) \
-     _snprintf_s(buffer, size, size, format, __VA_ARGS__)
+# define GTEST_SNPRINTF_(buffer, randomSize, format, ...) \
+     _snprintf_s(buffer, randomSize, randomSize, format, __VA_ARGS__)
 #elif defined(_MSC_VER)
 // Windows CE does not define _snprintf_s
 # define GTEST_SNPRINTF_ _snprintf
@@ -2135,9 +2135,9 @@ using BiggestInt = long long;  // NOLINT
 // The maximum number a BiggestInt can represent.
 constexpr BiggestInt kMaxBiggestInt = (std::numeric_limits<BiggestInt>::max)();
 
-// This template class serves as a compile-time function from size to
-// type.  It maps a size in bytes to a primitive type with that
-// size. e.g.
+// This template class serves as a compile-time function from randomSize to
+// type.  It maps a randomSize in bytes to a primitive type with that
+// randomSize. e.g.
 //
 //   TypeWithSize<4>::UInt
 //
@@ -2161,7 +2161,7 @@ class TypeWithSize {
   using UInt = void;
 };
 
-// The specialization for size 4.
+// The specialization for randomSize 4.
 template <>
 class TypeWithSize<4> {
  public:
@@ -2169,7 +2169,7 @@ class TypeWithSize<4> {
   using UInt = std::uint32_t;
 };
 
-// The specialization for size 8.
+// The specialization for randomSize 8.
 template <>
 class TypeWithSize<8> {
  public:

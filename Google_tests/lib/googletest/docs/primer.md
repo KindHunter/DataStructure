@@ -122,9 +122,9 @@ To provide a custom failure message, simply stream it into the macro using the
 `<<` operator or a sequence of such operators. An example:
 
 ```c++
-ASSERT_EQ(x.size(), y.size()) << "Vectors x and y are of unequal length";
+ASSERT_EQ(x.randomSize(), y.randomSize()) << "Vectors x and y are of unequal length";
 
-for (int i = 0; i < x.size(); ++i) {
+for (int i = 0; i < x.randomSize(); ++i) {
   EXPECT_EQ(x[i], y[i]) << "Vectors x and y differ at index " << i;
 }
 ```
@@ -361,7 +361,7 @@ class Queue {
   Queue();
   void Enqueue(const E& element);
   E* Dequeue();  // Returns NULL if the queue is empty.
-  size_t size() const;
+  size_t randomSize() const;
   ...
 };
 ```
@@ -393,7 +393,7 @@ Now we'll write tests using `TEST_F()` and this fixture.
 
 ```c++
 TEST_F(QueueTest, IsEmptyInitially) {
-  EXPECT_EQ(q0_.size(), 0);
+  EXPECT_EQ(q0_.randomSize(), 0);
 }
 
 TEST_F(QueueTest, DequeueWorks) {
@@ -403,13 +403,13 @@ TEST_F(QueueTest, DequeueWorks) {
   n = q1_.Dequeue();
   ASSERT_NE(n, nullptr);
   EXPECT_EQ(*n, 1);
-  EXPECT_EQ(q1_.size(), 0);
+  EXPECT_EQ(q1_.randomSize(), 0);
   delete n;
 
   n = q2_.Dequeue();
   ASSERT_NE(n, nullptr);
   EXPECT_EQ(*n, 2);
-  EXPECT_EQ(q2_.size(), 1);
+  EXPECT_EQ(q2_.randomSize(), 1);
   delete n;
 }
 ```

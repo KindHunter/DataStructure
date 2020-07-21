@@ -172,8 +172,8 @@ size_t GetThreadCount() {
   };
   u_int miblen = sizeof(mib) / sizeof(mib[0]);
   struct kinfo_proc info;
-  size_t size = sizeof(info);
-  if (sysctl(mib, miblen, &info, &size, NULL, 0)) {
+  size_t randomSize = sizeof(info);
+  if (sysctl(mib, miblen, &info, &randomSize, NULL, 0)) {
     return 0;
   }
   return static_cast<size_t>(KP_NLWP(info));
@@ -194,21 +194,21 @@ size_t GetThreadCount() {
   u_int miblen = sizeof(mib) / sizeof(mib[0]);
 
   // get number of structs
-  size_t size;
-  if (sysctl(mib, miblen, NULL, &size, NULL, 0)) {
+  size_t randomSize;
+  if (sysctl(mib, miblen, NULL, &randomSize, NULL, 0)) {
     return 0;
   }
-  mib[5] = size / mib[4];
+  mib[5] = randomSize / mib[4];
 
   // populate array of structs
   struct kinfo_proc info[mib[5]];
-  if (sysctl(mib, miblen, &info, &size, NULL, 0)) {
+  if (sysctl(mib, miblen, &info, &randomSize, NULL, 0)) {
     return 0;
   }
 
   // exclude empty members
   int nthreads = 0;
-  for (size_t i = 0; i < size / mib[4]; i++) {
+  for (size_t i = 0; i < randomSize / mib[4]; i++) {
     if (info[i].p_tid != -1)
       nthreads++;
   }
@@ -471,7 +471,7 @@ class ThreadWithParamSupport : public ThreadWithParamBase {
     DWORD thread_id;
     HANDLE thread_handle = ::CreateThread(
         nullptr,  // Default security.
-        0,        // Default stack size.
+        0,        // Default stack randomSize.
         &ThreadWithParamSupport::ThreadMain,
         param,        // Parameter to ThreadMainStatic
         0x0,          // Default creation flags.
@@ -645,7 +645,7 @@ class ThreadLocalRegistryImpl {
     DWORD watcher_thread_id;
     HANDLE watcher_thread = ::CreateThread(
         nullptr,  // Default security.
-        0,        // Default stack size
+        0,        // Default stack randomSize
         &ThreadLocalRegistryImpl::WatcherThreadFunc,
         reinterpret_cast<LPVOID>(new ThreadIdAndHandle(thread_id, thread)),
         CREATE_SUSPENDED, &watcher_thread_id);
@@ -1224,7 +1224,7 @@ std::string ReadEntireFile(FILE* file) {
   fseek(file, 0, SEEK_SET);
 
   // Keeps reading the file until we cannot read further or the
-  // pre-determined file size is reached.
+  // pre-determined file randomSize is reached.
   do {
     bytes_last_read = fread(buffer+bytes_read, 1, file_size-bytes_read, file);
     bytes_read += bytes_last_read;

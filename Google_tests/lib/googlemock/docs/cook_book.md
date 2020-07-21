@@ -1408,9 +1408,9 @@ using ::testing::ElementsAreArray;
   EXPECT_CALL(mock, Foo(ElementsAreArray(expected_vector2)));
 ```
 
-In case the array needs to be dynamically created (and therefore the array size
+In case the array needs to be dynamically created (and therefore the array randomSize
 cannot be inferred by the compiler), you can give `ElementsAreArray()` an
-additional argument to specify the array size:
+additional argument to specify the array randomSize:
 
 ```cpp
 using ::testing::ElementsAreArray;
@@ -3168,7 +3168,7 @@ Sometimes you are confident that your tests are correct and may not appreciate
 such friendly messages. Some other times, you are debugging your tests or
 learning about the behavior of the code you are testing, and wish you could
 observe every mock call that happens (including argument values, the return
-value, and the stack trace). Clearly, one size doesn't fit all.
+value, and the stack trace). Clearly, one randomSize doesn't fit all.
 
 You can control how much gMock tells you using the `--gmock_verbose=LEVEL`
 command-line flag, where `LEVEL` is a string with three possible values:

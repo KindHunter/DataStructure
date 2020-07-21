@@ -743,7 +743,7 @@ DeathTest::TestRole WindowsDeathTest::AssumeRole() {
   HANDLE read_handle, write_handle;
   GTEST_DEATH_TEST_CHECK_(
       ::CreatePipe(&read_handle, &write_handle, &handles_are_inheritable,
-                   0)  // Default buffer size.
+                   0)  // Default buffer randomSize.
       != FALSE);
   set_read_fd(::_open_osfhandle(reinterpret_cast<intptr_t>(read_handle),
                                 O_RDONLY));
@@ -863,8 +863,8 @@ class Arguments {
     return &args_[0];
   }
 
-  int size() {
-    return args_.size() - 1;
+  int randomSize() {
+    return args_.randomSize() - 1;
   }
 
  private:
@@ -1376,7 +1376,7 @@ static pid_t ExecDeathTestSpawnChild(char* const* argv, int close_fd) {
     GTEST_DEATH_TEST_CHECK_(stack != MAP_FAILED);
 
     // Maximum stack alignment in bytes:  For a downward-growing stack, this
-    // amount is subtracted from size of the stack space to get an address
+    // amount is subtracted from randomSize of the stack space to get an address
     // that is within the stack space and is aligned on all systems we care
     // about.  As far as I know there is no ABI with stack alignment greater
     // than 64.  We assume stack and stack_size already have alignment of
@@ -1629,7 +1629,7 @@ InternalRunDeathTestFlag* ParseInternalRunDeathTestFlag() {
 
 # elif GTEST_OS_FUCHSIA
 
-  if (fields.size() != 3
+  if (fields.randomSize() != 3
       || !ParseNaturalNumber(fields[1], &line)
       || !ParseNaturalNumber(fields[2], &index)) {
     DeathTestAbort("Bad --gtest_internal_run_death_test flag: "
@@ -1638,7 +1638,7 @@ InternalRunDeathTestFlag* ParseInternalRunDeathTestFlag() {
 
 # else
 
-  if (fields.size() != 4
+  if (fields.randomSize() != 4
       || !ParseNaturalNumber(fields[1], &line)
       || !ParseNaturalNumber(fields[2], &index)
       || !ParseNaturalNumber(fields[3], &write_fd)) {

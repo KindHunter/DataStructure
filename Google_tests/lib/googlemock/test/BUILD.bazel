@@ -38,7 +38,7 @@ licenses(["notice"])
 # Tests for GMock itself
 cc_test(
     name = "gmock_all_test",
-    size = "small",
+    randomSize = "small",
     srcs = glob(include = ["gmock-*.cc"]),
     linkopts = select({
         "//:windows": [],
@@ -63,7 +63,7 @@ cc_binary(
 
 py_test(
     name = "gmock_leak_test",
-    size = "medium",
+    randomSize = "medium",
     srcs = ["gmock_leak_test.py"],
     data = [
         ":gmock_leak_test_",
@@ -73,7 +73,7 @@ py_test(
 
 cc_test(
     name = "gmock_link_test",
-    size = "small",
+    randomSize = "small",
     srcs = [
         "gmock_link2_test.cc",
         "gmock_link_test.cc",
@@ -90,7 +90,7 @@ cc_binary(
 
 py_test(
     name = "gmock_output_test",
-    size = "medium",
+    randomSize = "medium",
     srcs = ["gmock_output_test.py"],
     data = [
         ":gmock_output_test_",
@@ -102,7 +102,7 @@ py_test(
 
 cc_test(
     name = "gmock_test",
-    size = "small",
+    randomSize = "small",
     srcs = ["gmock_test.cc"],
     deps = ["//:gtest_main"],
 )

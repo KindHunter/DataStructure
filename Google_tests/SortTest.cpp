@@ -53,7 +53,7 @@ protected:
         arr = new int[arrSize]{5, 4, 1, 3, 2};
         arrDuplicate = new int[arrSize]{5, 5, 1, 1, 2};
         oneElementArr = new int[1]{1};
-        this->randomArrSize = 10000;
+        this->randomArrSize = 100000;
         randomArr = new int[randomArrSize];
         for (int i = 0; i < randomArrSize; ++i) {
             randomArr[i] = randomInt();
@@ -66,6 +66,7 @@ protected:
         delete insertionSort;
         delete shellSort;
         delete [] arr;
+        delete [] arrDuplicate;
         delete [] oneElementArr;
         delete [] randomArr;
     }

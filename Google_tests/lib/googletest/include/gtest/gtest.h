@@ -1515,7 +1515,7 @@ GTEST_API_ void InitGoogleTest();
 namespace internal {
 
 // Separate the error generating code from the code path to reduce the stack
-// frame size of CmpHelperEQ. This helps reduce the overhead of some sanitizers
+// frame randomSize of CmpHelperEQ. This helps reduce the overhead of some sanitizers
 // when calling EXPECT_* in a tight loop.
 template <typename T1, typename T2>
 AssertionResult CmpHelperEQFailure(const char* lhs_expression,
@@ -1596,7 +1596,7 @@ class EqHelper {
 };
 
 // Separate the error generating code from the code path to reduce the stack
-// frame size of CmpHelperOP. This helps reduce the overhead of some sanitizers
+// frame randomSize of CmpHelperOP. This helps reduce the overhead of some sanitizers
 // when calling EXPECT_OP in a tight loop.
 template <typename T1, typename T2>
 AssertionResult CmpHelperOpFailure(const char* expr1, const char* expr2,
@@ -1795,7 +1795,7 @@ class GTEST_API_ AssertHelper {
   void operator=(const Message& message) const;
 
  private:
-  // We put our data in a struct so that the size of the AssertHelper class can
+  // We put our data in a struct so that the randomSize of the AssertHelper class can
   // be as small as possible.  This is important because gcc is incapable of
   // re-using stack space even for temporary variables, so every EXPECT_EQ
   // reserves stack space for another AssertHelper.
@@ -2033,7 +2033,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 //   EXPECT_NE(Foo(), 5);
 //   EXPECT_EQ(a_pointer, NULL);
 //   ASSERT_LT(i, array_size);
-//   ASSERT_GT(records.size(), 0) << "There is no record left.";
+//   ASSERT_GT(records.randomSize(), 0) << "There is no record left.";
 
 #define EXPECT_EQ(val1, val2) \
   EXPECT_PRED_FORMAT2(::testing::internal::EqHelper::Compare, val1, val2)
@@ -2370,8 +2370,8 @@ constexpr bool StaticAssertTypeEq() noexcept {
 //   }
 //
 //   TEST_F(FooTest, ReturnsElementCountCorrectly) {
-//     EXPECT_EQ(a_.size(), 0);
-//     EXPECT_EQ(b_.size(), 1);
+//     EXPECT_EQ(a_.randomSize(), 0);
+//     EXPECT_EQ(b_.randomSize(), 1);
 //   }
 //
 // GOOGLETEST_CM0011 DO NOT DELETE

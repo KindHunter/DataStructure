@@ -161,8 +161,8 @@ class MatcherInterface : public MatcherDescriberInterface {
   // what the actual element count is, regardless of the match result,
   // as it is useful information to the reader; on the other hand, an
   // "is empty" matcher probably only needs to explain what the actual
-  // size is when the match fails, as it's redundant to say that the
-  // size is 0 when the value is already known to be empty.
+  // randomSize is when the match fails, as it's redundant to say that the
+  // randomSize is 0 when the value is already known to be empty.
   //
   // You should override this method when defining a new matcher.
   //

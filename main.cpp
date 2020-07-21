@@ -18,7 +18,7 @@ int main() {
         myList->addLast(15);
 
 
-        cout << "current size:" << myList->size << endl;
+        cout << "current randomSize:" << myList->size << endl;
         int listSize = myList->size;
         for (int i = 0; i < listSize; ++i) {
             cout << "index:" << i << ", data:" << myList->get(0)->data << endl;

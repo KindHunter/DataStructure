@@ -6,7 +6,7 @@
 
 ArrayQueue::ArrayQueue(int queueSize) {
     if(queueSize <= 0){
-        throw "queue size must be positive!";
+        throw "queue randomSize must be positive!";
     }
     this->queueSize = queueSize;
     this->arrayP = new int[queueSize]();
