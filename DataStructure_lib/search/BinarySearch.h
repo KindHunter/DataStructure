@@ -10,6 +10,7 @@ class BinarySearch {
 
 public:
     int search(int *sortedArr, int size, int value);
+    int searchFirst(int *sortedArr, int size, int value);
 
 private:
     int internallySearch(int *sortedArr, int start,  int end, int value);

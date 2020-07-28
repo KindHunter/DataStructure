@@ -16,6 +16,8 @@ protected:
     int arrSize;
     int *randomSortedArr;
     int randomSize;
+    int *sameElementArr;
+    int *oneElementArr;
     BinarySearch * binarySearch;
     MergeSort *mergeSort;
     virtual int randomInt(){
@@ -38,11 +40,15 @@ protected:
         binarySearch = new BinarySearch();
         this->arrSize = 5;
         sortedArr = new int[arrSize]{1,2,2,3,4};
+        sameElementArr = new int[arrSize]{5,5,5,5,5};
+        oneElementArr = new int[1]{1};
     }
 
     virtual void TearDown(){
         delete [] randomSortedArr;
         delete [] sortedArr;
+        delete [] sameElementArr;
+        delete [] oneElementArr;
         delete mergeSort;
         delete binarySearch;
     }
@@ -54,6 +60,12 @@ TEST_F(SearchTestFixture, searchBasic){
     EXPECT_EQ(binarySearch->search(sortedArr, arrSize, 4), 4);
     EXPECT_EQ(binarySearch->search(sortedArr, arrSize, 1), 0);
     EXPECT_EQ(binarySearch->search(sortedArr, arrSize, 2), 2);
+    EXPECT_EQ(binarySearch->search(sortedArr, arrSize, 7), -1);
+
+    EXPECT_EQ(binarySearch->search(sameElementArr, arrSize, 5), 2);
+    EXPECT_EQ(binarySearch->search(oneElementArr, arrSize, 1), 0);
+    EXPECT_EQ(binarySearch->searchFirst(sameElementArr, arrSize, 5), 0);
+    EXPECT_EQ(binarySearch->searchFirst(sortedArr, arrSize, 2), 1);
 
 
 

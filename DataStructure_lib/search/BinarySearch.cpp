@@ -32,3 +32,21 @@ int BinarySearch::internallySearch(int *sortedArr, int start, int end, int value
     }
 
 }
+
+int BinarySearch::searchFirst(int *sortedArr, int size, int value) {
+    if (size <= 0){
+        return -1;
+    }
+    int index = internallySearch(sortedArr,0 , size-1, value);
+
+    if(index >0){
+        for (int i = index -1; i >= 0 ; --i) {
+            if(sortedArr[i] == value){
+                index = i;
+            } else {
+                break;
+            }
+        }
+    }
+    return index;
+}
