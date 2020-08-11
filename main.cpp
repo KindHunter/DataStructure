@@ -77,8 +77,8 @@ int main(){
         if(lineList.size() == 0){
             break;
         }
-        list<int*>::iterator it = lineList.begin();
-        for(;it!= lineList.end();it++){
+        list<int*>::iterator it ;
+        for(it = lineList.begin();it!= lineList.end();it++){
             BestRoute routeBefore = bestRouteMap.find(thisRoundStart)->second;
             int thisFrom = (*it)[0];
             int thisTo = (*it)[1];
@@ -119,7 +119,7 @@ int main(){
                     bestRouteMap[thisTo] = *br;
                 }
 
-                lineList.erase(it);
+                it = lineList.erase(it);
             }
         }
 
