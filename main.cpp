@@ -6,7 +6,7 @@ using namespace std;
 
 class BestRoute{
 public:
-    list<list<int>> routeList;
+    list<list<int>>  routeList;
     int distance;
     bool settled = false;
 };
@@ -17,7 +17,7 @@ int getThisRoundStart(map<int, BestRoute> * reusltMap, int to) {
     int lowestToSite = -1;
     int lowestDistance = INT8_MAX;
     for (; it!= (*reusltMap).end() ; ++it) {
-        if (it->second.settled == false){
+        if (! it->second.settled){
             if (it->second.distance < lowestDistance){
                 lowestToSite = it->first;
                 lowestDistance = it->second.distance;
@@ -67,7 +67,7 @@ int main(){
     firstRoute->routeList = frr;
 
     bestRouteMap[from] = *firstRoute;
-            
+
 
     while (true){
         int thisRoundStart = getThisRoundStart(&bestRouteMap, to);
@@ -77,17 +77,22 @@ int main(){
         if(lineList.size() == 0){
             break;
         }
+
+        BestRoute routeBefore = bestRouteMap.find(thisRoundStart)->second;
         list<int*>::iterator it ;
-        for(it = lineList.begin();it!= lineList.end();it++){
-            BestRoute routeBefore = bestRouteMap.find(thisRoundStart)->second;
+        for(it = lineList.begin();it!= lineList.end();){
+
             int thisFrom = (*it)[0];
             int thisTo = (*it)[1];
             int thisDistance = (*it)[2];
-            if(from == thisFrom){
+            if(thisRoundStart == thisFrom || thisRoundStart == thisTo){
+                if (thisRoundStart == thisTo){
+                    thisTo = thisFrom;
+                }
                 if(bestRouteMap.find(thisTo) != bestRouteMap.end()){
-                    BestRoute existRoute = bestRouteMap.find((*it)[1])->second;
+                    BestRoute & existRoute = bestRouteMap.find(thisTo)->second;
                     //判断和存在的路由相比，那个更短
-                    if (existRoute.distance < (thisDistance + routeBefore.distance)){
+                    if (existRoute.distance > (thisDistance + routeBefore.distance)){
                         BestRoute *br = new BestRoute();
                         br->distance = routeBefore.distance + thisDistance;
                         br->routeList = routeBefore.routeList;
@@ -120,6 +125,8 @@ int main(){
                 }
 
                 it = lineList.erase(it);
+            } else {
+                it++;
             }
         }
 
@@ -127,22 +134,28 @@ int main(){
 
 
     map<int, BestRoute>::iterator resultIt = bestRouteMap.find(to);
+
+
+
     if(resultIt != bestRouteMap.end()){
         BestRoute br = resultIt->second;
         int sumRescue = 0;
-        
+
         list<list<int>>::iterator itt;
-        for(itt = br.routeList.begin(); itt != br.routeList.begin(); itt++){
+        for(itt = br.routeList.begin(); itt != br.routeList.end(); itt++){
             list<int> insideList = *itt;
             list<int>::iterator itttt;
-            for(itttt = insideList.begin(); itttt != insideList.begin(); itttt++){
+            for(itttt = insideList.begin(); itttt != insideList.end(); itttt++){
                 int site = *itttt;
                 sumRescue += cityRescue[site];
+                cityRescue[site] = 0;
             }
         }
         cout << br.routeList.size() << " " << sumRescue;
     }else {
-        cout << "0 0";
+
+        cout << "0 "<< cityRescue[to];
+
     }
 
 
