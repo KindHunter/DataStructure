@@ -8,6 +8,7 @@
 #endif //DATASTRUCTURE_BFS_H
 #include <queue>
 #include <list>
+using namespace std;
 
 class BFS{
 

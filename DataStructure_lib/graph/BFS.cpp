@@ -55,6 +55,7 @@ using namespace std;
                         resultList.push_front(t);
                         while (prev[index] != -1){
                             resultList.push_front(prev[index]);
+                            index = prev[index];
                         }
                         return resultList;
                     }
