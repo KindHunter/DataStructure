@@ -37,7 +37,7 @@ protected:
 };
 
 /**
- * 测试广度优先搜索
+ * 测试广度优先搜索， 深度优先搜索
  */
 TEST_F(GraphTestFixture, testBasic) {
     list<int>  bfsRList = this->bfs->search(0, 1);

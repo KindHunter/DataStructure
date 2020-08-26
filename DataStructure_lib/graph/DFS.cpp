@@ -26,6 +26,7 @@ list<int> DFS::search(int s, int t) {
         prev[i] = -1;
     }
 
+
     cursiveSearch(s, t, &resultList, started, prev);
 
     return resultList;
@@ -39,10 +40,12 @@ void DFS::cursiveSearch(int start, int end, list<int> *resultList, bool *started
     list<int>::iterator it;
 
     for(it = thisRoundAdjList.begin(); it != thisRoundAdjList.end(); ++it){
+        if(!resultList->empty()){
+            return;
+        }
+
         if (!started[*it]){
-
-
-            if (*it == end && prev[end] == -1){
+            if (*it == end){
                 //此点是目的地, 因为c++的原因这里不是很好return，所以只是在result里加了结果
                 prev[end] = start;
                 int index = end;
@@ -51,6 +54,7 @@ void DFS::cursiveSearch(int start, int end, list<int> *resultList, bool *started
                     resultList->push_front(prev[index]);
                     index = prev[index];
                 }
+                return;
             } else {
                 //此点不是目的地，以此点为出发点继续寻找
                 prev[*it] = start;

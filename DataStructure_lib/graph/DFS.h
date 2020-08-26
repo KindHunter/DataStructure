@@ -18,9 +18,23 @@ public:
 
 
 
-
+    /**
+     * search入口
+     * @param s
+     * @param t
+     * @return
+     */
     list<int> search(int s, int t);
 
+private:
+    /**
+     * 递归搜索接口
+     * @param start
+     * @param end
+     * @param resultList
+     * @param started
+     * @param prev
+     */
     void cursiveSearch(int start, int end, list<int> *resultList, bool *started,
                   int *prev);
 };
