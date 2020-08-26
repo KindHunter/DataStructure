@@ -26,6 +26,14 @@ public:
      */
     list<int> search(int s, int t);
 
+    /**
+     * 用stack实现的dfs
+     * @param s
+     * @param t
+     * @return
+     */
+    list<int> searchByStack(int s, int t);
+
 private:
     /**
      * 递归搜索接口
@@ -37,6 +45,8 @@ private:
      */
     void cursiveSearch(int start, int end, list<int> *resultList, bool *started,
                   int *prev);
+
+
 };
 
 

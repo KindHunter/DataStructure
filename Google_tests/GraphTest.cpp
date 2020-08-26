@@ -19,13 +19,14 @@ protected:
         (bfs->adj)[1] = {3,2};
         (bfs->adj)[2] = {3};
         (bfs->adj)[3] = {1};
+        (bfs->adj)[4] = {};
 
         dfs = new DFS(5);
         (dfs->adj)[0] = {2,4, 1};
         (dfs->adj)[1] = {3,2};
         (dfs->adj)[2] = {3};
         (dfs->adj)[3] = {1};
-
+        (dfs->adj)[4] = {};
     }
 
     virtual void TearDown(){
@@ -50,7 +51,7 @@ TEST_F(GraphTestFixture, testBasic) {
     cout << "}" <<endl;
 
 
-    list<int>  dfsRList = this->dfs->search(0, 1);
+    list<int>  dfsRList = this->dfs->searchByStack(0, 1);
 
 
     cout << "dfsRList:{" <<endl;

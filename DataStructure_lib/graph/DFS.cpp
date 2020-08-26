@@ -12,6 +12,63 @@ DFS::DFS(int vertexCount) {
     this->adj = new list<int>[v];
 }
 
+
+list<int> DFS::searchByStack(int s, int t){
+    //最短路径结果集
+    list<int> resultList;
+    //邻接表访问标识，为true标识此index的邻接表已经遍历过了，不需要重复访问
+    bool started[v];
+    //每个顶点到起点可能连线，的前一个顶点（不一定是最短的连线）
+    int prev[v];
+    stack<int> startVertexStack;
+
+    //初始化全局变量
+    for (int i = 0; i < this->v; ++i) {
+        started[i] = false;
+        prev[i] = -1;
+    }
+    startVertexStack.push(s);
+
+    while(!startVertexStack.empty()){
+        //这里先top不pop，是因为还需要进行回溯，如果这个节点的所有相关节点都已经start过了，那么就可以进行pop了
+        int adjStartIndex = startVertexStack.top();
+
+        started[adjStartIndex] = true;
+        list<int>::iterator it;
+        bool needToPop = true;
+        for(it = adj[adjStartIndex].begin(); it != adj[adjStartIndex].end(); it++){
+
+            if (!started[*it]){
+                needToPop = false;
+                startVertexStack.push(*it);
+                prev[*it] = adjStartIndex;
+                if (*it == t){
+
+                    int index = t;
+                    resultList.push_front(t);
+                    while (prev[index] != -1){
+                        resultList.push_front(prev[index]);
+                        index = prev[index];
+                    }
+                    return resultList;
+                }
+                //只要push了一个就立即跳出for循环，因为这里要进行深度搜索，不需要现在就沿着邻接表去遍历所有
+                break;
+            }
+
+        }
+        if(needToPop){
+            //这里pop的，其实就是adjStartIndex，因为，只有一次push都没的情况下才会进这里
+            startVertexStack.pop();
+        }
+    }
+    return resultList;
+}
+
+
+
+
+
 list<int> DFS::search(int s, int t) {
     //最短路径结果集
     list<int> resultList;
