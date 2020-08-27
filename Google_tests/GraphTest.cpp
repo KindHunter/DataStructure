@@ -49,6 +49,7 @@ TEST_F(GraphTestFixture, testBasic) {
         cout << "    " <<*it <<endl;
     }
     cout << "}" <<endl;
+    EXPECT_EQ(bfsRList.size(),2);
 
 
     list<int>  dfsRList = this->dfs->searchByStack(0, 1);
@@ -59,4 +60,15 @@ TEST_F(GraphTestFixture, testBasic) {
         cout << "    " <<*it <<endl;
     }
     cout << "}" <<endl;
+    EXPECT_EQ(dfsRList.size(),4);
+
+    list<int>  dfsRList2 = this->dfs->search(0, 1);
+
+    cout << "dfsRList2:{" <<endl;
+    for(it = dfsRList2.begin(); it != dfsRList2.end(); it++){
+        cout << "    " <<*it <<endl;
+    }
+    cout << "}" <<endl;
+    EXPECT_EQ(dfsRList2.size(),4);
+
 }
