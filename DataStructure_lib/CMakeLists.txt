@@ -13,7 +13,8 @@ set(HEADER_FILES
         sort/QuickSort.h
         search/BinarySearch.h
         graph/BFS.h
-        graph/DFS.h)
+        graph/DFS.h
+        graph/Dijkstra.h)
 
 set(SOURCE_FILES
         linkedlist/LinkedList.cpp
@@ -28,6 +29,7 @@ set(SOURCE_FILES
         sort/QuickSort.cpp
         search/BinarySearch.cpp
         graph/BFS.cpp
-        graph/DFS.cpp)
+        graph/DFS.cpp
+        graph/Dijkstra.cpp)
 
 add_library(DataStructure_lib STATIC ${SOURCE_FILES} ${HEADER_FILES})
