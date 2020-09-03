@@ -6,6 +6,8 @@
 #define DATASTRUCTURE_DIJKSTRA_H
 
 #include <vector>
+#include <list>
+#include <utility>
 
 using namespace std;
 class Dijkstra {
@@ -26,6 +28,7 @@ public:
      */
     list<int> search(int s, int t);
 
+    int getNextStart(bool settled[], int shortest[]);
 };
 
 
